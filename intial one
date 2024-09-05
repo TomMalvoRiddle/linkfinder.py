@@ -1,0 +1,14 @@
+import re
+
+def extract_links(file_path):
+    with open(file_path, 'r') as file:
+        text = file.read()
+        links = re.findall(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
+        return links
+
+file_path = 'path_to_your_text_file.txt'  # replace with your file path
+links = extract_links(file_path)
+
+print("Extracted links:")
+for link in links:
+    print(link)
